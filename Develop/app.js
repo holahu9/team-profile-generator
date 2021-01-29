@@ -62,7 +62,19 @@ inquirer.prompt([
     {
         type:'input',
         name:'officeNumber',
-        message:'Enter your Manager office number?' 
+        message:'Enter your Manager office number?', 
+        validate: input => {
+            // Check entry is a number
+            if (!isNaN(input)) {
+                // Check entry is not an empty string
+                if (!(input === "")) {
+                    return true;
+                }
+                console.log("You must enter an ID number.");
+            } else {
+                console.log("Please enter a number for the ID!");
+            }
+        }
     }, 
 ])
 
@@ -105,8 +117,7 @@ function createEngineer(){
                     console.log("Please enter a number for the ID!");
                 }
             }
-    
-    
+            
         },
         {
             type:'input',
@@ -155,7 +166,7 @@ function createEngineer(){
             {
                 type:`input`,
                 name:'InternId',
-                message:'What is your intern Id?'
+                message:'What is your intern Id?',
                 validate: input => {
                     // Check entry is a number
                     if (!isNaN(input)) {

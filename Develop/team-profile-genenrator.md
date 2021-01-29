@@ -9,9 +9,9 @@ This project is to build a Node.js command-line application that takes in inform
 * [usage](#usage)
 * [Technologies](#Technologies)
 * [questions](#questions)
-* [video][#video]
-* [Repository][#Repository]
-* [Output][#Output]
+* [video](#video)
+* [Repository](#Repository)
+* [Output](#Output)
 
 ## Installation
 THEN my default email program opens and populates the TO field of the email with the address

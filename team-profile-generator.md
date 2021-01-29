@@ -34,6 +34,7 @@ https://drive.google.com/file/d/1ILkWq87FI8v_gWlQeC-2PdIqjLrA_WCQ/view?usp=shari
 
 
 ## ScreenShot
+![Screen Shot 2021-01-28 at 8 37 47 PM](https://user-images.githubusercontent.com/70487513/106230029-a41c5c00-61bc-11eb-8103-81c80725e248.png)
 
 
 ## Output

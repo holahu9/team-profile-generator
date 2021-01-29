@@ -9,75 +9,76 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-const team = []
+const myTeam = []; // create myTeam empty array
 function createManager(){
 
 // An array containing questions for the users input
 inquirer.prompt([
     {
         type:'input',
-        name: 'manager_name',
-        message: 'What is your Managers name?'
+        name: 'name',
+        message: 'Enter your Manager name?'
 
     }, 
     {
         type:`input`,
         name:'nameId',
-        message:'What is your Managers Id?'
+        message:'Enter your Manager Id?'
 
 
     },
     {
         type:'input',
         name:'email',
-        message:'What is your Managers email address?', 
+        message:'Enter your Manager email address?', 
 
     },
     {
         type:'input',
         name:'officeNumber',
-        message:'What is your Managers office number?' 
+        message:'Enter your Manager office number?' 
     }, 
 ])
 
 .then(response =>{
-const manager = new Manager(response.manager_name, response.nameId, response.email,response.officeNumber)
-team.push(manager);
+const manager = new Manager(response.name, response.nameId, response.email,response.officeNumber)
+// Push manager object to myTeam array
+myTeam.push(manager);
 createEmployee()
 }) 
 }
 function createEngineer(){
-    // An array containing questions for the users input
+    // An array hold questions for the users input
     inquirer.prompt([
         {
             type:'input',
-            name: 'Engineer_name',
-            message: 'What is your Engineer name?'
+            name: 'name',
+            message: 'Enter your Engineer name?'
     
         }, 
         {
             type:`input`,
             name:'EngineerId',
-            message:'What is your Engineer Id?'
+            message:'Enter your Engineer Id?'
     
     
         },
         {
             type:'input',
             name:'email',
-            message:'What is your Engineer email address?', 
+            message:'Enter your Engineer email address?', 
     
         },
         {
             type:'input',
             name:'github',
-            message:'What is your Engineers Github?' 
+            message:'Enter your Engineer Github?' 
         }, 
     ])
     
     .then(response =>{
-    const engineer = new Engineer(response.Engineer_name, response.EngineerId, response.email,response.github)
-    team.push(engineer);
+    const engineer = new Engineer(response.name, response.EngineerId, response.email,response.github)
+    myTeam.push(engineer); // Push engineer object to myTeam array
     createEmployee()
     }) 
     }
@@ -88,7 +89,7 @@ function createEngineer(){
         inquirer.prompt([
             {
                 type:'input',
-                name: 'Intern_name',
+                name: 'name',
                 message: 'What is your interns name?'
         
             }, 
@@ -108,13 +109,13 @@ function createEngineer(){
             {
                 type:'input',
                 name:'school',
-                message:'What is your intern  school?' 
+                message:'What is your intern school?' 
             }, 
         ])
         
         .then(response =>{
-        const intern = new Intern(response.Intern_name, response.InternId, response.email,response.school)
-        team.push(intern);
+        const intern = new Intern(response.name, response.InternId, response.email,response.school)
+        myTeam.push(intern); // Push intern object to myTeam array
         createEmployee()
         }) 
         }
@@ -125,7 +126,7 @@ function createEmployee(){
          {
             type:'list',
             name: 'choice',
-            message: 'What type of team member would you like to add?',
+            message: 'What type of myteam would you like to add ?',
             choices:['Engineer','Intern','N/A']
         }])
         .then(response =>{
@@ -135,22 +136,25 @@ function createEmployee(){
                   break;
                 case 'Intern':
                 createIntern()
-                  // code block
+                 
                   break;
                 default:
-                    buildTeam()
-                  // code block
+                    writeNewFile()
+                  
               }
         })
 }
 
 
-function buildTeam(){
+function writeNewFile(){
+    // Check if the output directory already exists
  if(!fs.existsSync(OUTPUT_DIR)){
+     // If doesn't exist, create the specified directory
     fs.mkdirSync(OUTPUT_DIR)
 
  }
-fs.writeFileSync(outputPath, render(team), 'utf-8')
+  // Write out the html page
+fs.writeFileSync(outputPath, render(myTeam), 'utf-8')
 
 
 }

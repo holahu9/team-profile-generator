@@ -17,7 +17,14 @@ inquirer.prompt([
     {
         type:'input',
         name: 'name',
-        message: 'Enter your Manager name?'
+        message: 'Enter your Manager name?',
+        validate: input => {
+            if (input === ''){
+                return 'Enter at least one character.';
+            } else {
+                return true;
+            }
+        }
 
     }, 
     {
@@ -31,6 +38,13 @@ inquirer.prompt([
         type:'input',
         name:'email',
         message:'Enter your Manager email address?', 
+        validate: input => {
+            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input)){
+                return true;
+            } else {
+                return 'Enter a valid email address';
+            }
+        }
 
     },
     {
@@ -53,7 +67,14 @@ function createEngineer(){
         {
             type:'input',
             name: 'name',
-            message: 'Enter your Engineer name?'
+            message: 'Enter your Engineer name?',
+            validate: input => {
+                if (input === ''){
+                    return 'Enter at least one character.';
+                } else {
+                    return true;
+                }
+            }
     
         }, 
         {
@@ -67,6 +88,13 @@ function createEngineer(){
             type:'input',
             name:'email',
             message:'Enter your Engineer email address?', 
+            validate: input => {
+                if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input)){
+                    return true;
+                } else {
+                    return 'Enter a valid email address';
+                }
+            }
     
         },
         {
@@ -90,7 +118,14 @@ function createEngineer(){
             {
                 type:'input',
                 name: 'name',
-                message: 'What is your interns name?'
+                message: 'What is your interns name?',
+                validate: input => {
+                    if (input === ''){
+                        return 'Enter at least one character.';
+                    } else {
+                        return true;
+                    }
+                }
         
             }, 
             {
@@ -104,6 +139,13 @@ function createEngineer(){
                 type:'input',
                 name:'email',
                 message:'What is your intern email address?', 
+                validate: input => {
+                    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input)){
+                        return true;
+                    } else {
+                        return 'Enter a valid email address';
+                    }
+                }
         
             },
             {

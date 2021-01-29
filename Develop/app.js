@@ -30,7 +30,19 @@ inquirer.prompt([
     {
         type:`input`,
         name:'nameId',
-        message:'Enter your Manager Id?'
+        message:'Enter your Manager Id?',
+        validate: input => {
+            // Check entry is a number
+            if (!isNaN(input)) {
+                // Check entry is not an empty string
+                if (!(input === "")) {
+                    return true;
+                }
+                console.log("You must enter an ID number.");
+            } else {
+                console.log("Please enter a number for the ID!");
+            }
+        }
 
 
     },
@@ -80,7 +92,19 @@ function createEngineer(){
         {
             type:`input`,
             name:'EngineerId',
-            message:'Enter your Engineer Id?'
+            message:'Enter your Engineer Id?',
+            validate: input => {
+                // Check entry is a number
+                if (!isNaN(input)) {
+                    // Check entry is not an empty string
+                    if (!(input === "")) {
+                        return true;
+                    }
+                    console.log("You must enter an ID number.");
+                } else {
+                    console.log("Please enter a number for the ID!");
+                }
+            }
     
     
         },
@@ -132,6 +156,18 @@ function createEngineer(){
                 type:`input`,
                 name:'InternId',
                 message:'What is your intern Id?'
+                validate: input => {
+                    // Check entry is a number
+                    if (!isNaN(input)) {
+                        // Check entry is not an empty string
+                        if (!(input === "")) {
+                            return true;
+                        }
+                        console.log("You must enter an ID number.");
+                    } else {
+                        console.log("Please enter a number for the ID!");
+                    }
+                }
         
         
             },

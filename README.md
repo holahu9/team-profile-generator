@@ -39,6 +39,7 @@ https://drive.google.com/file/d/1ILkWq87FI8v_gWlQeC-2PdIqjLrA_WCQ/view?usp=shari
 ## Output
 * The following link shows html file generated with this app
  Direct Link: https://holahu9.github.io/team-profile-generator/
+ http://127.0.0.1:5500/Develop/output/team.html
 
 ## Questions
 If there are any questions about this **Team-Profile-Generator** application, then please feel

@@ -70,9 +70,9 @@ inquirer.prompt([
                 if (!(input === "")) {
                     return true;
                 }
-                console.log("You must enter an ID number.");
+                console.log("You must enter an office number.");
             } else {
-                console.log("Please enter a number for the ID!");
+                console.log("Please enter an office number ");
             }
         }
     }, 
@@ -198,7 +198,15 @@ function createEngineer(){
             {
                 type:'input',
                 name:'school',
-                message:'What is your intern school?' 
+                message:'What is your intern school?',
+                validate: input => {
+                    // Check that user provided a string
+                    if (input) {
+                        return true;
+                    } else {
+                        console.log("Please enter a school!");
+                    }
+                } 
             }, 
         ])
         
